@@ -1,27 +1,99 @@
+@-moz-viewport { width: device-width; scale: 1; }
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+@viewport { width: device-width; scale: 1; }
+
 html {
+  box-sizing: border-box;
+
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
   background-color: #000;
+
+  font: normal 100%/1.5 sans-serif;
+  color: #fff;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 .clock-face {
   height: 300px;
-  margin: 50px auto;
   width: 300px;
-
-  background: transparent url("../images/clock-face.svg") no-repeat center center;
-}
-
-.center {
-  width: 28px;
+  background-image: url(../images/clock-face.svg);
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
 }
 
 .hand {
   width: 14px;
+  position: absolute;
+  left: calc(50% - 7px);
+  bottom: calc(50%);
+  transform-origin: bottom center;
+  transition: all 6s linear;
 }
 
-.hand-hour {
-
+.center {
+  width: 28px;
+  position: absolute;
+  bottom: calc(50% - 14px);
+  left: calc(50% - 14px);
 }
 
-.hand-minute {
+.clock-face:target .hand-hour {
+  transform: rotate(360deg);
+}
 
+.clock-face:target .hand-minute {
+  transform: rotate(4320deg);
+}
+
+.forwards {
+  width: 7em;
+  text-align: center;
+  background-color: green;
+  line-height: 7em;
+  border-radius: 50%;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  transition: all 1000ms ease-in-out;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.forwards:hover {
+  background-color: white;
+  color: grey;
+  opacity: 1;
+}
+
+.backwards:hover {
+  background-color: white;
+  color: grey;
+}
+
+.backwards {
+  width: 7em;
+  text-align: center;
+  background-color: red;
+  line-height: 7em;
+  border-radius: 50%;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  transition: all 1000ms ease-in-out;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.middle {
+  text-align: center;
 }
