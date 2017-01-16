@@ -11,7 +11,6 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-
   background-color: #000;
 
   font: normal 100%/1.5 sans-serif;
@@ -25,9 +24,8 @@ html {
 .clock-face {
   height: 300px;
   width: 300px;
-  background-image: url(../images/clock-face.svg);
-  margin-right: auto;
-  margin-left: auto;
+  background: transparent url("../images/clock-face.svg") no-repeat center center;
+  margin: 50px auto;
   position: relative;
 }
 
@@ -38,6 +36,33 @@ html {
   bottom: calc(50%);
   transform-origin: bottom center;
   transition: all 6s linear;
+}
+
+.hand-hour {
+  position: absolute;
+  top: 30%;
+  left: 48%;
+  transform-origin: center bottom;
+  animation: spin 6s linear infinite;
+}
+
+.hand-minute {
+  position: absolute;
+  top: 23%;
+  left: 48%;
+  transform-origin: center bottom;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .center {
